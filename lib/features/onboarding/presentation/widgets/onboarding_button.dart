@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:experienceapp/core/constants/app_colors.dart';
+import '../../../interests/presentation/pages/interests_page.dart';
 
 class OnboardingButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -15,7 +16,14 @@ class OnboardingButton extends StatelessWidget {
       width: double.infinity,
       height: 58,
       child: ElevatedButton(
-        onPressed: onPressed,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => const InterestsPage(),
+            ),
+          );
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: AppColors.primary,
           elevation: 0,

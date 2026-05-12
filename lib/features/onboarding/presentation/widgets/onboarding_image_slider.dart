@@ -18,11 +18,16 @@ class OnboardingImageSlider extends StatelessWidget {
       onPageChanged: onPageChanged,
       itemCount: controller.pages.length,
       itemBuilder: (context, index) {
-        return Image.asset(
-          controller.pages[index].image,
-          fit: BoxFit.cover,
-          width: double.infinity,
-        );
+      final item = controller.pages[index];
+
+      return Center(
+        child: Image.asset(
+          item.image,
+          width: item.imageWidth,
+          height: item.imageHeight,
+          fit: BoxFit.contain,
+        ),
+      );
       },
     );
   }
