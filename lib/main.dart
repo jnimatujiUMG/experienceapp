@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:experienceapp/core/theme/app_theme.dart';
-import 'package:experienceapp/features/onboarding/presentation/pages/onboaarding_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'routes/app_router.dart';
 
 void main() {
   runApp(
@@ -16,10 +15,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
-      home: const OnboardingPage(),
+      routerConfig: appRouter,
+      // theme: AppTheme.lightTheme,
+      // home: const OnboardingPage(),
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/interests_provider.dart';
 import '../widgets/interest_item.dart';
 import '../widgets/progress_bar.dart';
+import 'package:go_router/go_router.dart';
 
 class InterestsPage extends ConsumerWidget {
   const InterestsPage({super.key});
@@ -75,7 +76,9 @@ class InterestsPage extends ConsumerWidget {
                 width: double.infinity,
                 height: 58,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.go('/explore');
+                  },
                   child: const Text('Next'),
                 ),
               ),
