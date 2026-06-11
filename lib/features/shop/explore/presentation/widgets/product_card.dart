@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-
-import '../../../../../core/widgets/custom_network_image.dart';
-import '../../domain/entities/product_entity.dart';
 import 'package:go_router/go_router.dart';
 
-class ProductCard extends StatelessWidget {
+import '../../../../../core/widgets/custom_network_image.dart';
+
+import '../../domain/entities/product_entity.dart';
+
+class ProductCard
+    extends StatelessWidget {
 
   final ProductEntity product;
 
@@ -17,58 +19,74 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return GestureDetector(
+
       onTap: () {
+
         context.push(
           '/product-detail',
           extra: product,
         );
       },
-      child: Container(
-        width: 170,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(18),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
+
+      child: Column(
+        crossAxisAlignment:
+            CrossAxisAlignment.start,
+
+        children: [
+
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                color:
+                    const Color(0xFFDCE3EE),
+
+                borderRadius:
+                    BorderRadius.circular(
+                  22,
+                ),
+              ),
+
               child: ClipRRect(
-                borderRadius: const BorderRadius.vertical(
-                  top: Radius.circular(18),
+                borderRadius:
+                    BorderRadius.circular(
+                  22,
                 ),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: CustomNetworkImage(
-                    imageUrl: product.imageUrl,
-                  ),
+
+                child: CustomNetworkImage(
+                  imageUrl:
+                      product.imageUrl,
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(14),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    product.title,
-                    style: const TextStyle(
-                      fontSize: 15,
-                    ),
-                  ),
-                  const SizedBox(height: 6),
-                  Text(
-                    '\$ ${product.price}',
-                    style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
+          ),
+
+          const SizedBox(height: 12),
+
+          Text(
+            product.title,
+
+            maxLines: 1,
+
+            overflow:
+                TextOverflow.ellipsis,
+
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
             ),
-          ],
-        ),
+          ),
+
+          const SizedBox(height: 4),
+
+          Text(
+            '\$ ${product.price}',
+
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ],
       ),
     );
   }

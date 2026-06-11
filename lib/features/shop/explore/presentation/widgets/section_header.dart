@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SectionHeader extends StatelessWidget {
+class SectionHeader
+    extends StatelessWidget {
 
   final String title;
 
@@ -15,10 +16,12 @@ class SectionHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment:
           MainAxisAlignment.spaceBetween,
+
       children: [
 
         Text(
           title,
+
           style: const TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -27,7 +30,10 @@ class SectionHeader extends StatelessWidget {
 
         TextButton(
           onPressed: () {},
-          child: const Text('See more'),
+
+          child: const Text(
+            'See more',
+          ),
         ),
       ],
     );

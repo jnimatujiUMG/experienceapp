@@ -1,7 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class CustomNetworkImage extends StatelessWidget {
+class CustomNetworkImage
+    extends StatelessWidget {
+
   final String? imageUrl;
 
   const CustomNetworkImage({
@@ -12,34 +13,41 @@ class CustomNetworkImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    if (imageUrl == null) {
-      return _placeholder();
+    if (imageUrl == null ||
+        imageUrl!.isEmpty) {
+
+      return Container(
+        color: const Color(0xFFDCE3EE),
+
+        child: const Center(
+          child: Icon(
+            Icons.image_outlined,
+            size: 45,
+            color: Colors.blue,
+          ),
+        ),
+      );
     }
 
-    return CachedNetworkImage(
-      imageUrl: imageUrl!,
+    return Image.network(
+      imageUrl!,
       fit: BoxFit.cover,
 
-      placeholder: (context, url) {
-        return _placeholder();
-      },
+      errorBuilder:
+          (context, error, stackTrace) {
 
-      errorWidget: (context, url, error) {
-        return _placeholder();
-      },
-    );
-  }
+        return Container(
+          color: const Color(0xFFDCE3EE),
 
-  Widget _placeholder() {
-    return Container(
-      color: const Color(0xFFDCE3EE),
-      child: Center(
-        child: Icon(
-          Icons.image_outlined,
-          color: Colors.blue.shade200,
-          size: 40,
-        ),
-      ),
+          child: const Center(
+            child: Icon(
+              Icons.image_outlined,
+              size: 45,
+              color: Colors.blue,
+            ),
+          ),
+        );
+      },
     );
   }
 }

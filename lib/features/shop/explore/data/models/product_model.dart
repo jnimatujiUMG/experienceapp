@@ -1,18 +1,35 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/entities/product_entity.dart';
+//dejarlo todo como modelo
+//sin extend a entidad
+//conversion desde entidad crear un from model para mapeo de datos
+class ProductModel {
 
-class ProductModel extends ProductEntity {
+  final String id;
+
+  final String title;
+
+  final String description;
+
+  final double price;
+
+  final String? imageUrl;
+
+  final List<String> sizes;
+
+  final List<Color> colors;
+
+  final bool isFavorite;
 
   const ProductModel({
-    required super.id,
-    required super.title,
-    required super.description,
-    required super.price,
-    super.imageUrl,
-    required super.sizes,
-    required super.colors,
-    super.isFavorite,
+    required this.id,
+    required this.title,
+    required this.description,
+    required this.price,
+    this.imageUrl,
+    required this.sizes,
+    required this.colors,
+    this.isFavorite = false,
   });
 
   factory ProductModel.fromJson(

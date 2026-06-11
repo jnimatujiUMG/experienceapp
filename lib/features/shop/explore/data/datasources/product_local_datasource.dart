@@ -15,12 +15,12 @@ class ProductLocalDatasource {
       ProductModel(
         id: '1',
 
-        title: 'Amazing T-Shirtjhjkhgf',
+        title: 'prueba producto 0923',
 
         description:
-            'The perfect T-shirt for casual outfits.',
+            'Producto de prueba para mostrar en la aplicación.',
 
-        price: 12,
+        price: 12.44,
 
         imageUrl: null,
 
@@ -39,6 +39,49 @@ class ProductLocalDatasource {
         id: '2',
 
         title: 'Fabolous Pants',
+
+        description:
+            'Modern pants for casual and elegant outfits.',
+
+        price: 15,
+
+        imageUrl: null,
+
+        sizes: ['S', 'M', 'L'],
+
+        colors: [
+          Colors.black,
+          Colors.brown,
+        ],
+
+        isFavorite: false,
+      ),
+
+      ProductModel(
+        id: '2',
+
+        title: 'camisa de prueba1',
+
+        description:
+            'Modern pants for casual and elegant outfits.',
+
+        price: 15,
+
+        imageUrl: null,
+
+        sizes: ['S', 'M', 'L'],
+
+        colors: [
+          Colors.black,
+          Colors.brown,
+        ],
+
+        isFavorite: false,
+      ),
+      ProductModel(
+        id: '2',
+
+        title: 'camisa de prueba2',
 
         description:
             'Modern pants for casual and elegant outfits.',
